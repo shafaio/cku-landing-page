@@ -19,7 +19,7 @@ export default async function HomePage({ data }: { data: HomePageData }) {
       <Industries {...data.IndustriesSection} />
       <Partners {...data.PartnerSection} />
       <InvestorRelations {...data.InvestorSection} />
-      <Contact {...data.ContactSection} />
+      <Contact {...data.ContactSection} {...data.CompanyInformation} />
     </>
   );
 }

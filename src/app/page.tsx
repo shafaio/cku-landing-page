@@ -6,6 +6,7 @@ import { getDataHomePage } from "@/utils/get-data-home-page";
 
 export default async function Home() {
   const { data } = await getDataHomePage();
+  // const { data } = dumy;
 
   return (
     <>

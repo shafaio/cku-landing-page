@@ -40,7 +40,7 @@ const Hero = (props: HeroSection) => {
                 size="lg"
                 className="sm:text-lg animate-pulse-subtle"
               >
-                Let&apos;s Build a Solution Together
+                {props.PrimaryButton.Text}
               </Button>
               <Button
                 onClick={() => scrollToSection("services")}
@@ -48,7 +48,7 @@ const Hero = (props: HeroSection) => {
                 size="lg"
                 className="sm:text-lg group"
               >
-                Explore Our Capabilities
+                {props.Secondary.Text}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>

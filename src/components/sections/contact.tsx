@@ -5,9 +5,9 @@ import { Mail, MapPin } from "lucide-react";
 import Section from "@/components/ui/section";
 import SectionHeading from "@/components/ui/section-heading";
 import Button from "@/components/ui/button";
-import { ContactSection } from "@/type";
+import { CompanyInformation, ContactSection } from "@/type";
 
-const Contact = (props: ContactSection) => {
+const Contact = (props: ContactSection & CompanyInformation) => {
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -74,10 +74,7 @@ const Contact = (props: ContactSection) => {
 
   return (
     <Section id="contact" bgColor="bg-gray-50">
-      <SectionHeading
-        title="Let's Build the Future Together"
-        subtitle="Have a project in mind? Get in touch and let's discuss how we can help you achieve your technology goals in Indonesia."
-      />
+      <SectionHeading title={props.title} subtitle={props.Description} />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
@@ -88,11 +85,7 @@ const Contact = (props: ContactSection) => {
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-1">Our Location</h3>
-                <p className="text-gray-600">
-                  Jl. Jenderal Sudirman No.Kav. 33A, Lt. 22, RT.3/RW.2, Karet
-                  Tengsin, Kecamatan Tanah Abang, <br /> Kota Jakarta Pusat,
-                  Daerah Khusus Ibukota Jakarta 10220
-                </p>
+                <p className="text-gray-600">{props.CompanyAddress}</p>
               </div>
             </div>
 
@@ -102,7 +95,7 @@ const Contact = (props: ContactSection) => {
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-1">Email Us</h3>
-                <p className="text-gray-600">info@citrakomunikasi.id</p>
+                <p className="text-gray-600">{props.Email}</p>
               </div>
             </div>
 
@@ -138,15 +131,6 @@ const Contact = (props: ContactSection) => {
                   {language}
                 </span>
               ))}
-              {/* <span className="px-3 py-1 bg-blue-700 rounded-full text-sm">
-                English
-              </span>
-              <span className="px-3 py-1 bg-blue-700 rounded-full text-sm">
-                Mandarin
-              </span>
-              <span className="px-3 py-1 bg-blue-700 rounded-full text-sm">
-                Japanese
-              </span> */}
             </div>
           </div>
         </div>

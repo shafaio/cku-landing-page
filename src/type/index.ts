@@ -1,7 +1,63 @@
+export type ImageFormat = {
+  ext: string;
+  url: string;
+  hash: string;
+  mime: string;
+  name: string;
+  path: string | null;
+  size: number;
+  width: number;
+  height: number;
+  sizeInBytes: number;
+};
+
+export type Media = {
+  id: number;
+  documentId: string;
+  name: string;
+  alternativeText: string | null;
+  caption: string | null;
+  width: number | null;
+  height: number | null;
+  formats: {
+    large?: ImageFormat;
+    medium?: ImageFormat;
+    small?: ImageFormat;
+    thumbnail?: ImageFormat;
+  } | null;
+  hash: string;
+  ext: string;
+  mime: string;
+  size: number;
+  url: string;
+  previewUrl: string | null;
+  provider: string;
+  provider_metadata: unknown;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  locale: string | null;
+};
+
 export type Partner = {
   id: number;
   Name: string;
   Description: string;
+  image: Media;
+};
+
+export type PartnerCTA = {
+  id: number;
+  Text: string;
+  Link: string;
+};
+
+export type TrustIndicator = {
+  id: number;
+  Title: string;
+  Description: string;
+  Indicators: string;
+  icon: string | null;
 };
 
 export type CompanyInformation = {
@@ -11,6 +67,7 @@ export type CompanyInformation = {
   CompanyAddress: string;
   Email: string;
   Phone: string;
+  Logo: Media;
 };
 
 export type SEOSetting = {
@@ -18,6 +75,30 @@ export type SEOSetting = {
   SiteTitle: string;
   SiteDescription: string;
   SiteKeywords: string;
+  OGImage: Media;
+  Favicon: Media;
+};
+
+export type HeroButton = {
+  id: number;
+  Text: string;
+  Link: string;
+};
+
+export type HeroSection = {
+  id: number;
+  HeroTitle: string;
+  HeroDescription: string;
+  PrimaryButton: HeroButton;
+  Secondary: HeroButton;
+};
+
+export type Feature = {
+  id: number;
+  Title: string;
+  Description: string;
+  Indicators: string;
+  icon: string;
 };
 
 export type Section = {
@@ -26,26 +107,24 @@ export type Section = {
   title?: string;
   Description?: string;
   description?: string;
+  Features?: Feature[];
+  Services?: Feature[];
+  Industries?: Feature[];
 };
 
 export type VisionAndMission = {
   id: number;
   Title: string;
   Description: string;
+  Vision: Feature;
+  Mission: Feature;
+  WhyApproach: Feature;
 };
 
-export type HeroSection = {
+export type InvestorStat = {
   id: number;
-  HeroTitle: string;
-  HeroDescription: string;
-};
-
-export type PartnerSection = {
-  id: number;
-  Title: string;
-  HighlightedTitle: string;
+  Name: string;
   Description: string;
-  Partners: Partner[];
 };
 
 export type InvestorSection = {
@@ -59,11 +138,27 @@ export type InvestorSection = {
   MarketGrowthText: string;
   MarketGrowthDesription: string;
   MarketGrowthDigitalApplicationText: string;
+  MarketGrowthData: InvestorStat[];
+  PrimaryCTA: PartnerCTA;
+  SecondayCTA: PartnerCTA;
 };
 
 export type ContactSection = {
   id: number;
   Languanges: string;
+  ContactCTA: PartnerCTA;
+  title: string;
+  Description: string;
+};
+
+export type PartnerSection = {
+  id: number;
+  Title: string;
+  HighlightedTitle: string;
+  Description: string;
+  Partners: Partner[];
+  PartnerCTA: PartnerCTA;
+  TrusIndicator: TrustIndicator;
 };
 
 export type HomePageData = {
@@ -87,5 +182,5 @@ export type HomePageData = {
 
 export type HomePageResponse = {
   data: HomePageData;
-  meta: Record<string, string >;
+  meta: Record<string, unknown>;
 };

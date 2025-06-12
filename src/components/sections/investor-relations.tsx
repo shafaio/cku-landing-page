@@ -1,3 +1,5 @@
+"use client";
+
 import Button from "@/components/ui/button";
 import Section from "@/components/ui/section";
 import { InvestorSection } from "@/type";
@@ -22,15 +24,20 @@ const InvestorRelations = (props: InvestorSection) => {
           <p className="text-blue-200 mb-6">{props.Description}</p>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-8">
-            <Button variant="secondary" size="lg">
-              Download Investor Deck
+            <Button
+              variant="secondary"
+              size="lg"
+              onClick={() => window.open(props.PrimaryCTA.Link, "_blank")}
+            >
+              {props.PrimaryCTA.Text}
             </Button>
             <Button
               variant="outline"
               size="lg"
               className="border-white text-white hover:bg-white/10"
+              onClick={() => window.open(props.SecondayCTA.Link, "_blank")}
             >
-              Financial Reports
+              {props.SecondayCTA.Text}
             </Button>
           </div>
 
@@ -55,7 +62,18 @@ const InvestorRelations = (props: InvestorSection) => {
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 relative z-10">
-            <div className="bg-white/5 p-5 rounded-lg backdrop-blur-sm">
+            {props.MarketGrowthData.map((data) => (
+              <div
+                key={data.id}
+                className="bg-white/5 p-5 rounded-lg backdrop-blur-sm"
+              >
+                <div className="text-2xl font-bold text-green-400 mb-2">
+                  {data.Name}
+                </div>
+                <div className="text-sm text-blue-200">{data.Description}</div>
+              </div>
+            ))}
+            {/* <div className="bg-white/5 p-5 rounded-lg backdrop-blur-sm">
               <div className="text-2xl font-bold text-green-400 mb-2">
                 20.5%
               </div>
@@ -72,7 +90,7 @@ const InvestorRelations = (props: InvestorSection) => {
             <div className="bg-white/5 p-5 rounded-lg backdrop-blur-sm">
               <div className="text-2xl font-bold text-yellow-400 mb-2">3</div>
               <div className="text-sm text-blue-200">Indonesian Provinces</div>
-            </div>
+            </div> */}
           </div>
 
           <div className="relative z-10 mt-6">

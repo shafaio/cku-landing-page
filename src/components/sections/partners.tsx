@@ -1,8 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { PartnerSection } from "@/type";
 import Image from "next/image";
-import { useState } from "react";
 
 const Partners = (props: PartnerSection) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -75,7 +75,7 @@ const Partners = (props: PartnerSection) => {
                 /> */}
 
                 <Image
-                  src={`/brand/${partner.Name.split(" ")[0]}.png`}
+                  src={`${process.env.NEXT_PUBLIC_BASE_API}${partner.image.url}`}
                   alt={partner.Description}
                   width={100}
                   height={100}
@@ -105,17 +105,18 @@ const Partners = (props: PartnerSection) => {
 
             <div className="relative z-10">
               <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
-                Become a Partner
+                {props.TrusIndicator.Title}
               </h3>
               <p className="text-blue-100 mb-8 max-w-2xl mx-auto text-lg">
-                Join our expanding ecosystem of technology partners. Together,
-                we can create innovative solutions that transform the Indonesian
-                digital landscape.
+                {props.TrusIndicator.Description}
               </p>
 
               {/* Enhanced CTA button */}
-              <button className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transform hover:scale-105 transition-all duration-300 shadow-lg">
-                <span>Learn About Partnership Opportunities</span>
+              <button
+                className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transform hover:scale-105 transition-all duration-300 shadow-lg"
+                onClick={() => window.open(props.PartnerCTA.Link, "_blank")}
+              >
+                <span>{props.PartnerCTA.Text}</span>
                 <svg
                   className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform"
                   fill="none"
@@ -133,48 +134,24 @@ const Partners = (props: PartnerSection) => {
 
               {/* Trust indicators */}
               <div className="mt-8 flex flex-wrap justify-center gap-6 text-blue-100">
-                <div className="flex items-center">
-                  <svg
-                    className="w-5 h-5 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="text-sm">Verified Partners</span>
-                </div>
-                <div className="flex items-center">
-                  <svg
-                    className="w-5 h-5 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="text-sm">Integrated Solutions</span>
-                </div>
-                <div className="flex items-center">
-                  <svg
-                    className="w-5 h-5 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="text-sm">24/7 Support</span>
-                </div>
+                {props.TrusIndicator.Indicators.split("\n").map(
+                  (indicator, index) => (
+                    <div key={index} className="flex items-center">
+                      <svg
+                        className="w-5 h-5 mr-2"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      <span className="text-sm">{indicator}</span>
+                    </div>
+                  )
+                )}
               </div>
             </div>
           </div>
