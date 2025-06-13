@@ -2,7 +2,14 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["cms.citrakomunikasi.id"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cms.citrakomunikasi.id",
+        port: "",
+        pathname: "/**",
+      },
+    ],
   },
 };
 

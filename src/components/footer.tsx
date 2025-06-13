@@ -1,14 +1,14 @@
 import Logo from "@/components/ui/logo";
-import { CompanyInformation } from "@/type";
+import { CompanyInformation, Section } from "@/type";
 import { Mail, MapPin, Phone } from "lucide-react";
 
-const Footer = (props: CompanyInformation) => {
+const Footer = (props: CompanyInformation & Section) => {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <Logo />
+            <Logo {...props.Logo} />
             <p className="mt-4 text-gray-400">{props.CompanyDescription}</p>
             {/* <div className="flex space-x-4 mt-6">
               <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
@@ -75,46 +75,16 @@ const Footer = (props: CompanyInformation) => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
-              <li>
-                <a
-                  href="#services"
-                  className="text-gray-400 hover:text-white transition-colors duration-300"
-                >
-                  Digital Product & Tech Distribution
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#services"
-                  className="text-gray-400 hover:text-white transition-colors duration-300"
-                >
-                  Digital Transformation
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#services"
-                  className="text-gray-400 hover:text-white transition-colors duration-300"
-                >
-                  Ecosystem Partnership
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#services"
-                  className="text-gray-400 hover:text-white transition-colors duration-300"
-                >
-                  Strategic Market Entry
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#services"
-                  className="text-gray-400 hover:text-white transition-colors duration-300"
-                >
-                  Fintech & Telco Integration
-                </a>
-              </li>
+              {props.Services?.map((service, index) => (
+                <li key={index}>
+                  <a
+                    href={`#services`}
+                    className="text-gray-400 hover:text-white transition-colors duration-300"
+                  >
+                    {service.Title}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 

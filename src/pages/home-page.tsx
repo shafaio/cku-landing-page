@@ -7,7 +7,6 @@ import Partners from "@/components/sections/partners";
 import Services from "@/components/sections/services";
 import VisionMission from "@/components/sections/vission-mission";
 import { HomePageData } from "@/type";
-// import { getDataHomePage } from "@/utils/get-data-home-page";
 
 export default async function HomePage({ data }: { data: HomePageData }) {
   return (

@@ -76,7 +76,7 @@ const Partners = (props: PartnerSection) => {
 
                 <Image
                   src={`${process.env.NEXT_PUBLIC_BASE_API}${partner.image.url}`}
-                  alt={partner.Description}
+                  alt={partner.Description ?? partner.Name}
                   width={100}
                   height={100}
                   className="h-16 sm:h-20 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300 relative z-10"

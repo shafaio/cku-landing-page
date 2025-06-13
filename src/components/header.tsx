@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Button from "@/components/ui/button";
 import Logo from "@/components/ui/logo";
+import { CompanyInformation } from "@/type";
 
-const Header = () => {
+const Header = (props: CompanyInformation) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,7 +42,7 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
-          <Logo />
+          <Logo {...props.Logo} />
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">

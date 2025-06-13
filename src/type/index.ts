@@ -17,8 +17,8 @@ export type Media = {
   name: string;
   alternativeText: string | null;
   caption: string | null;
-  width: number | null;
-  height: number | null;
+  width: number;
+  height: number;
   formats: {
     large?: ImageFormat;
     medium?: ImageFormat;

@@ -10,7 +10,7 @@ interface HighlightProps {
 }
 
 const Highlight = ({ icon, title, description }: HighlightProps) => {
-  const Icon = LucideIcons[icon] ?? "X";
+  const Icon = LucideIcons[icon] ?? LucideIcons["X"];
 
   return (
     <div className="flex items-start p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 group">

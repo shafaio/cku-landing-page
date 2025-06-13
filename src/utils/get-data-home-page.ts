@@ -24,6 +24,7 @@ export const getDataHomePage: () => Promise<HomePageResponse> = async () => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${process.env.NEXT_BEARER_TOKEN}`,
         },
+        // cache: "no-store",
       }
     );
     const data = await res.json();

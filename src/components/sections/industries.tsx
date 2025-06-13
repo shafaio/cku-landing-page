@@ -16,7 +16,7 @@ const IndustryCard = ({
   description,
   indicators,
 }: IndustryCardProps) => {
-  const Icon = LucideIcons[icon] ?? "X";
+  const Icon = LucideIcons[icon] ?? LucideIcons["X"];
 
   return (
     <div className="relative overflow-hidden group">

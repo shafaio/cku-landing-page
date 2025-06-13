@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Citra Komunikasi Utama",
-  description:
-    "Your Strategic Technology Partner in Indonesia. Empowering companies through smart, scalable, and localized digital solutions.",
-};
+// export const metadata: Metadata = {
+//   title: "Citra Komunikasi Utama",
+//   description:
+//     "Your Strategic Technology Partner in Indonesia. Empowering companies through smart, scalable, and localized digital solutions.",
+// };
 
 export default function RootLayout({
   children,

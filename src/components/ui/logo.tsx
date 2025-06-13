@@ -1,25 +1,25 @@
+import { Media } from "@/type";
 import Image from "next/image";
 
-// interface LogoProps {
-//   variant?: "light" | "dark";
-// }
-
-const Logo = () =>
-  // { variant = "dark" }: LogoProps
-  {
-    // const textColor = variant === 'light' ? 'text-white' : 'text-gray-900';
-    // const primaryColor = variant === 'light' ? 'text-blue-300' : '#4B69B9';
-    // const secondaryColor = variant === 'light' ? 'text-teal-300' : '#42D4A5';
-
-    return (
-      <div className="flex items-center">
-        <div className="flex items-center mr-3">
-          <div className="flex flex-col gap-1">
-            <Image src="/Logo_CKU.png" alt="" height={60} width={227} />
-          </div>
+const Logo = (props: Media) => {
+  return (
+    <div className="flex items-center">
+      <div className="flex items-center mr-3">
+        <div className="flex flex-col gap-1">
+          {props?.url && props.width && props.height ? (
+            <Image
+              src={`${process.env.NEXT_PUBLIC_BASE_API}${props.url}`}
+              alt={props.alternativeText ?? "Image"}
+              width={props.width}
+              height={props.height}
+            />
+          ) : (
+            <div className="text-sm text-gray-400">Image not available</div>
+          )}
         </div>
       </div>
-    );
-  };
+    </div>
+  );
+};
 
 export default Logo;
