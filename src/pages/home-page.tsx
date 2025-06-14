@@ -11,14 +11,16 @@ import { HomePageData } from "@/type";
 export default async function HomePage({ data }: { data: HomePageData }) {
   return (
     <>
-      <Hero {...data.HeroSection} />
-      <About {...data.AboutSection} />
-      <VisionMission {...data.VisionAndMission} />
-      <Services {...data.ServiceSection} />
-      <Industries {...data.IndustriesSection} />
-      <Partners {...data.PartnerSection} />
-      <InvestorRelations {...data.InvestorSection} />
-      <Contact {...data.ContactSection} {...data.CompanyInformation} />
+      {data?.HeroSection && <Hero {...data.HeroSection} />}
+      {data?.AboutSection && <About {...data.AboutSection} />}
+      {data?.VisionAndMission && <VisionMission {...data.VisionAndMission} />}
+      {data?.ServiceSection && <Services {...data.ServiceSection} />}
+      {data?.IndustriesSection && <Industries {...data.IndustriesSection} />}
+      {data?.PartnerSection && <Partners {...data.PartnerSection} />}
+      {data?.InvestorSection && <InvestorRelations {...data.InvestorSection} />}
+      {data?.ContactSection && data?.CompanyInformation && (
+        <Contact {...data.ContactSection} {...data.CompanyInformation} />
+      )}
     </>
   );
 }

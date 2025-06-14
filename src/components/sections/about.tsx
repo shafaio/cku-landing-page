@@ -1,6 +1,6 @@
-import { LucideIcons } from "@/components/icon";
 import Section from "@/components/ui/section";
 import SectionHeading from "@/components/ui/section-heading";
+import { getDynamicIcon } from "@/lib/dynamic-icon";
 import { Section as AboutType } from "@/type";
 
 interface HighlightProps {
@@ -10,7 +10,7 @@ interface HighlightProps {
 }
 
 const Highlight = ({ icon, title, description }: HighlightProps) => {
-  const Icon = LucideIcons[icon] ?? LucideIcons["X"];
+  const Icon = getDynamicIcon(icon);
 
   return (
     <div className="flex items-start p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 group">

@@ -1,6 +1,6 @@
-import { LucideIcons } from "@/components/icon";
 import Section from "@/components/ui/section";
 import SectionHeading from "@/components/ui/section-heading";
+import { getDynamicIcon } from "@/lib/dynamic-icon";
 import { Section as IndustriesType } from "@/type";
 
 interface IndustryCardProps {
@@ -16,7 +16,9 @@ const IndustryCard = ({
   description,
   indicators,
 }: IndustryCardProps) => {
-  const Icon = LucideIcons[icon] ?? LucideIcons["X"];
+  // const Icon = LucideIcons[icon] ?? LucideIcons["X"];
+  const Icon = getDynamicIcon(icon);
+
 
   return (
     <div className="relative overflow-hidden group">

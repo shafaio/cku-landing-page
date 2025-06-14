@@ -302,7 +302,7 @@ const Contact = (props: ContactSection & CompanyInformation) => {
                       Sending...
                     </>
                   ) : (
-                    "Send Message"
+                    `${props.ContactCTA.Text}`
                   )}
                 </Button>
               </div>

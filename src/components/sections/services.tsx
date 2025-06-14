@@ -1,6 +1,7 @@
-import { LucideIcons } from "@/components/icon";
+// import { LucideIcons } from "@/components/icon";
 import Section from "@/components/ui/section";
 import SectionHeading from "@/components/ui/section-heading";
+import { getDynamicIcon } from "@/lib/dynamic-icon";
 import { Section as ServiceType } from "@/type";
 
 interface ServiceCardProps {
@@ -10,12 +11,14 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ icon, title, description }: ServiceCardProps) => {
-  const IconCard = LucideIcons[icon] ?? "X";
+  // const IconCard = LucideIcons[icon] ?? "X";
+  const Icon = getDynamicIcon(icon);
+
   return (
     <div className="flex flex-col bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl group">
       <div className="p-6 flex-grow">
         <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mb-5 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
-          <IconCard className="w-6 h-6" />
+          <Icon className="w-6 h-6" />
         </div>
         <h3 className="text-xl font-semibold mb-3 group-hover:text-blue-600 transition-colors duration-300">
           {title}

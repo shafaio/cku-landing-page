@@ -13,11 +13,11 @@ export default async function Home() {
     <>
       <DynamicFavicon href={faviconUrl} />
       <DynamicSEO {...data?.SEOSetting} {...data?.CompanyInformation} />
-      <Header {...data.CompanyInformation} />
+      <Header {...data?.CompanyInformation} />
       <main>
         <HomePage data={data} />
       </main>
-      <Footer {...data.CompanyInformation} {...data.ServiceSection} />
+      <Footer {...data?.CompanyInformation} {...data?.ServiceSection} />
     </>
   );
 }

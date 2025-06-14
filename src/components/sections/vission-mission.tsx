@@ -1,10 +1,14 @@
-import { LucideIcons } from "@/components/icon";
+// import { LucideIcons } from "@/components/icon";
 import Section from "@/components/ui/section";
+import { getDynamicIcon } from "@/lib/dynamic-icon";
 import { VisionAndMission } from "@/type";
 
 const VisionMission = (props: VisionAndMission) => {
-  const IconMission = LucideIcons[props.Vision.icon] ?? "X";
-  const IconVission = LucideIcons[props.Mission.icon] ?? "X";
+  // const IconMission = LucideIcons[props.Vision.icon] ?? "X";
+  // const IconVission = LucideIcons[props.Mission.icon] ?? "X";
+
+  const IconMission = getDynamicIcon(props.Vision.icon);
+  const IconVission = getDynamicIcon(props.Vision.icon);
 
   return (
     <Section id="vision-mission" bgColor="bg-white">

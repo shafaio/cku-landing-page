@@ -1,6 +1,4 @@
-import { HomePageResponse } from "@/type";
-
-export const dumy: HomePageResponse = {
+export const dumy = {
   data: {
     id: 7,
     documentId: "cy55z3rbc5shjxi44n86p9nq",
